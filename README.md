@@ -18,10 +18,11 @@ https://docs.docker.com/engine/reference/commandline/stop/
 https://docs.docker.com/engine/reference/commandline/rm/
 
 # Config Options
-You may change the path of the passwd/group files the server queries from by passing them as arguments to the start script in the format "./start.sh $PASSWD_FILE $GROUP_FILE". For example, to change the passwd file to "/var/passwd/" and the group file to "/var/group" on the host machine, run "./start.sh /var/passwd /var/group". 
+You may change the path of the passwd/group files the server queries from by passing them as arguments to the start script in the format "./start.sh $PASSWD_FILE $GROUP_FILE". For example, to change the passwd file to "/var/passwd/" and the group file to "/var/group" on the host machine, run "./start.sh /var/passwd /var/group". They default to /etc/passwd and /etc/group, respectively.
 
 Note that because these are positional arguments in bash, you must pass the both arguments in order to edit the group file path.
 
+If the customized input files do not exist or do not contain standard entries like those in /etc/passwd and /etc/group, a 500 error will be thrown with a message indicating the failure.
 # Unit test
 A simple unit test which tests the various endpoints will return 200 success has been included under "test/unit_test.py". To execute this, you must first prepare your python environment.
 
